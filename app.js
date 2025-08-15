@@ -1,7 +1,7 @@
 //Basic App for deploying to App Service in Azure
 const express = require('express');
 const app = express();
-const port = 80;
+const port = process.env.PORT || 80;
 const os = require('os');
 
 const hostname = os.hostname();
