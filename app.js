@@ -1,3 +1,4 @@
+//Basic App for deploying to App Service in Azure
 const express = require('express');
 const app = express();
 const port = 80;
@@ -12,3 +13,4 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on http://${hostname}:${port}`);
 });
+
