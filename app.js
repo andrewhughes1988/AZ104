@@ -1,4 +1,4 @@
-//Basic App for deploying to App Service in Azure
+//Basic App for deploying to App Service in Azure.
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 80;
