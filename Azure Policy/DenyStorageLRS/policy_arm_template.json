@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "policyDefinitionName": {
+      "type": "string",
+      "defaultValue": "storage-deny-lrs",
+      "metadata": {
+        "description": "The name of the policy definition."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyDefinitions",
+      "apiVersion": "2020-09-01",
+      "name": "[parameters('policyDefinitionName')]",
+      "properties": {
+        "displayName": "Deny Storage Account Standard_LRS SKU",
+        "description": "This policy prevents the creation of any storage account with the Standard_LRS SKU.",
+        "mode": "Indexed",
+        "policyRule": {
+          "if": {
+            "allOf": [
+              {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+              },
+              {
+                "field": "Microsoft.Storage/storageAccounts/sku.name",
+                "equals": "Standard_LRS"
+              }
+            ]
+          },
+          "then": {
+            "effect": "deny"
+          }
+        }
+      }
+    }
+  ]
+}
