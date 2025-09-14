@@ -1,0 +1,1 @@
+az policy definition create --name "Allowed Storage Tiers" --display-name "Allowed Storage Tiers - Hot tier only" --description "Deny storage account creation if not Hot tier" --metadata .\allowed_storage_tier_metadata.json --rules .\allowed_storage_tier_rule.json

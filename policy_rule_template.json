@@ -1,0 +1,22 @@
+{
+  "if": {
+    "allOf": [
+      {
+          "field": "field types: name, fullName, kind, type, location, id, identity.type, tags, property aliases (use Get-AzPolicyAlias -ListAvailable, then (Get-AzPolicyAlias -NamespaceMatch 'storage').Aliases)"
+      },
+      {
+        "not": {
+          "field": "tags",
+          "containsKey": "application"
+        }
+      },
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny | audit | modify | denyAction | append | auditIfNotExists | deployIfNotExists | disabled"
+  }
+}

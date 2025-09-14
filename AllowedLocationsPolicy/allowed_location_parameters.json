@@ -1,0 +1,25 @@
+{
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+        "description": "The list of allowed locations for resources. Must be in US Regions",
+        "displayName": "Allowed locations - US Only",
+        "strongType": "location"
+        },
+        "defaultValue": [
+        "eastus"
+        ],
+        "allowedValues": [
+        "eastus",
+        "eastus2",
+        "eastus3",
+        "centralus",
+        "northcentralus",
+        "southcentralus",
+        "westcentralus",
+        "westus",
+        "westus2",
+        "westus3"
+        ]
+    }
+}

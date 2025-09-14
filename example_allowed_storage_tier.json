@@ -1,0 +1,46 @@
+{
+  "properties": {
+    "displayName": "Allowed Storage Access Tiers - Hot Only",
+    "policyType": "Custom",
+    "mode": "All",
+    "description": "This policy restricts the access tier to hot only.",
+    "metadata": {
+      "createdBy": "user-guid-would-be-here",
+      "createdOn": "2025-08-17T14:06:19.9876957Z",
+      "updatedBy": null,
+      "updatedOn": null
+    },
+    "version": "1.0.0",
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "field": "Microsoft.Storage/storageAccounts/accessTier",
+            "notequals": "Hot"
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    },
+    "versions": [
+      "1.0.0"
+    ]
+  },
+  "id": "/subscriptions/subscription-id-would-be-here/providers/Microsoft.Authorization/policyDefinitions/AllowedStorageAccessTiers",
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "AllowedStorageAccessTiers",
+  "systemData": {
+    "createdBy": "author@domain.com",
+    "createdByType": "User",
+    "createdAt": "2025-08-17T14:06:19.9589285Z",
+    "lastModifiedBy": "author@domain.com",
+    "lastModifiedByType": "User",
+    "lastModifiedAt": "2025-08-17T14:06:19.9589285Z"
+  }
+}

@@ -1,0 +1,15 @@
+{
+    "param_name_goes_here" :{
+        "type": "string",
+        "metadata": {
+            "description": "parameter description",
+            "displayName": "parameter display name",
+            "strongType": "OPTIONAL: Strong types provide a context aware list of options in the Azure Portal when this is assigned. The non resource type allowed values for strongType are:location, resourceTypes, storageSkus, vmSKUsexisting, ResourceGroups",
+            "assignPermissions" : "OPTIONAL: set to true to have the Azure portal create role assignments during policy assignment.",
+            "deprecated": "OPTIONAL: boolean indicating if this parameter definition is deprecated"
+        },
+        "defaultValue": "OPTIONAL: set a default value of the parameter",
+        "allowedValues": "OPTIONAL: provide an array of accepted values for this paramater - case sensitive",
+        "schema": "OPTIONAL: Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the Json.NET Schema 2019-09 implementation. "
+    }
+}

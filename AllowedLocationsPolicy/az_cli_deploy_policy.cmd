@@ -1,0 +1,1 @@
+az policy definition create --name "Allowed Locations" --display-name "Allowed Locations - US Only" --description "Deny resource creation outside US regions" --metadata .\allowed_location_policy_metadata.json --rules .\allowed_location_policy_rule.json --params .\allowed_location_parameters.json
