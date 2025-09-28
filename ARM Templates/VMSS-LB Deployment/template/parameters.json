@@ -9,7 +9,7 @@
             "value": "Premium_LRS"
         },
         "virtualNetworkId": {
-            "value": "/subscriptions/9734ed68-621d-47ed-babd-269110dbacb1/resourceGroups/1-32df5306-playground-sandbox/providers/Microsoft.Network/virtualNetworks/vnet-centralus-1"
+            "value": "/subscriptions/2213e8b1-dbc7-4d54-8aff-b5e315df5e5b/resourceGroups/1-d687092e-playground-sandbox/providers/Microsoft.Network/virtualNetworks/vnet-centralus-1"
         },
         "virtualNetworkName": {
             "value": "vnet-centralus-1"
@@ -18,7 +18,7 @@
             "value": [
                 {
                     "name": "basicNsgvnet-centralus-nic01",
-                    "id": "/subscriptions/9734ed68-621d-47ed-babd-269110dbacb1/resourceGroups/1-32df5306-playground-sandbox/providers/Microsoft.Network/networkSecurityGroups/basicNsgvnet-centralus-nic01",
+                    "id": "/subscriptions/2213e8b1-dbc7-4d54-8aff-b5e315df5e5b/resourceGroups/1-d687092e-playground-sandbox/providers/Microsoft.Network/networkSecurityGroups/basicNsgvnet-centralus-nic01",
                     "rules": [
                         {
                             "name": "HTTP",
@@ -55,7 +55,7 @@
                 {
                     "name": "vnet-centralus-nic01",
                     "primary": true,
-                    "subnetId": "/subscriptions/9734ed68-621d-47ed-babd-269110dbacb1/resourceGroups/1-32df5306-playground-sandbox/providers/Microsoft.Network/virtualNetworks/vnet-centralus-1/subnets/snet-centralus-1",
+                    "subnetId": "/subscriptions/2213e8b1-dbc7-4d54-8aff-b5e315df5e5b/resourceGroups/1-d687092e-playground-sandbox/providers/Microsoft.Network/virtualNetworks/vnet-centralus-1/subnets/snet-centralus-1",
                     "applicationGatewayBackendAddressPools": [],
                     "loadBalancerBackendAddressPools": [
                         {
@@ -66,7 +66,7 @@
                     "loadBalancerInboundNatPools": [],
                     "enableAcceleratedNetworking": false,
                     "nsgName": "basicNsgvnet-centralus-nic01",
-                    "nsgId": "/subscriptions/9734ed68-621d-47ed-babd-269110dbacb1/resourceGroups/1-32df5306-playground-sandbox/providers/Microsoft.Network/networkSecurityGroups/basicNsgvnet-centralus-nic01",
+                    "nsgId": "/subscriptions/2213e8b1-dbc7-4d54-8aff-b5e315df5e5b/resourceGroups/1-d687092e-playground-sandbox/providers/Microsoft.Network/networkSecurityGroups/basicNsgvnet-centralus-nic01",
                     "pipName": ""
                 }
             ]
@@ -156,7 +156,7 @@
             "value": "vnet-centralus-1"
         },
         "vnetResourceGroupName": {
-            "value": "1-32df5306-playground-sandbox"
+            "value": "1-d687092e-playground-sandbox"
         },
         "vnetDeploymentName": {
             "value": "network-interface-associated-virtual-network-20250928092955"
