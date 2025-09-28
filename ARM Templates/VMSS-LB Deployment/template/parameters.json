@@ -1,0 +1,196 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "centralus"
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/9734ed68-621d-47ed-babd-269110dbacb1/resourceGroups/1-32df5306-playground-sandbox/providers/Microsoft.Network/virtualNetworks/vnet-centralus-1"
+        },
+        "virtualNetworkName": {
+            "value": "vnet-centralus-1"
+        },
+        "networkSecurityGroups": {
+            "value": [
+                {
+                    "name": "basicNsgvnet-centralus-nic01",
+                    "id": "/subscriptions/9734ed68-621d-47ed-babd-269110dbacb1/resourceGroups/1-32df5306-playground-sandbox/providers/Microsoft.Network/networkSecurityGroups/basicNsgvnet-centralus-nic01",
+                    "rules": [
+                        {
+                            "name": "HTTP",
+                            "properties": {
+                                "priority": 300,
+                                "protocol": "TCP",
+                                "access": "Allow",
+                                "direction": "Inbound",
+                                "sourceAddressPrefix": "*",
+                                "sourcePortRange": "*",
+                                "destinationAddressPrefix": "*",
+                                "destinationPortRange": "80"
+                            }
+                        },
+                        {
+                            "name": "SSH",
+                            "properties": {
+                                "priority": 301,
+                                "protocol": "TCP",
+                                "access": "Allow",
+                                "direction": "Inbound",
+                                "sourceAddressPrefix": "*",
+                                "sourcePortRange": "*",
+                                "destinationAddressPrefix": "*",
+                                "destinationPortRange": "22"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "networkInterfaceConfigurations": {
+            "value": [
+                {
+                    "name": "vnet-centralus-nic01",
+                    "primary": true,
+                    "subnetId": "/subscriptions/9734ed68-621d-47ed-babd-269110dbacb1/resourceGroups/1-32df5306-playground-sandbox/providers/Microsoft.Network/virtualNetworks/vnet-centralus-1/subnets/snet-centralus-1",
+                    "applicationGatewayBackendAddressPools": [],
+                    "loadBalancerBackendAddressPools": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancerName'), parameters('backendPoolName'))]"
+                        }
+                    ],
+                    "applicationSecurityGroups": [],
+                    "loadBalancerInboundNatPools": [],
+                    "enableAcceleratedNetworking": false,
+                    "nsgName": "basicNsgvnet-centralus-nic01",
+                    "nsgId": "/subscriptions/9734ed68-621d-47ed-babd-269110dbacb1/resourceGroups/1-32df5306-playground-sandbox/providers/Microsoft.Network/networkSecurityGroups/basicNsgvnet-centralus-nic01",
+                    "pipName": ""
+                }
+            ]
+        },
+        "backendPoolName": {
+            "value": "bepool"
+        },
+        "loadBalancerName": {
+            "value": "VMSS-LB-01"
+        },
+        "loadbalancingRuleFrontEndPort": {
+            "value": 80
+        },
+        "loadbalancingRuleBackendEndPort": {
+            "value": 80
+        },
+        "loadbalancingRuleProtocol": {
+            "value": "Tcp"
+        },
+        "InboundNATRuleFrontEndPortRangeStart": {
+            "value": 50000
+        },
+        "vmName": {
+            "value": "VMSS-01"
+        },
+        "virtualMachineScaleSetName": {
+            "value": "VMSS-01"
+        },
+        "instanceCount": {
+            "value": "2"
+        },
+        "instanceSize": {
+            "value": "Standard_DS1_v2"
+        },
+        "zone": {
+            "value": [
+                "1",
+                "2",
+                "3"
+            ]
+        },
+        "zoneBalance": {
+            "value": "false"
+        },
+        "platformFaultDomainCount": {
+            "value": "1"
+        },
+        "scaleInPolicy": {
+            "value": {
+                "rules": [
+                    "Default"
+                ],
+                "forceDeletion": false
+            }
+        },
+        "upgradePolicy": {
+            "value": "Manual"
+        },
+        "hibernationEnabled": {
+            "value": false
+        },
+        "adminUsername": {
+            "value": "azureuser"
+        },
+        "adminPassword": {
+            "value": "[EnterAPasswordHere]"
+        },
+        "customData": {
+            "value": "I2Nsb3VkLWNvbmZpZw0KcGFja2FnZV91cGRhdGU6IHRydWUNCnBhY2thZ2VzOg0KICAtIG5naW54DQoNCndyaXRlX2ZpbGVzOg0KICAtIHBhdGg6IC92YXIvd3d3L2h0bWwvaW5kZXguaHRtbA0KICAgIG93bmVyOiByb290OnJvb3QNCiAgICBwZXJtaXNzaW9uczogJzA2NDQnDQogICAgY29udGVudDogfA0KICAgICAgPGh0bWw+DQogICAgICA8aGVhZD48dGl0bGU+Vk1TUyBUZXN0IFBhZ2U8L3RpdGxlPjwvaGVhZD4NCiAgICAgIDxib2R5Pg0KICAgICAgICA8aDE+Vk0gSG9zdCBJbmZvPC9oMT4NCiAgICAgICAgPHAgaWQ9Imhvc3QiPjwvcD4NCiAgICAgICAgPHNjcmlwdD4NCiAgICAgICAgICBmZXRjaCgnL2hvc3RuYW1lLnR4dCcpDQogICAgICAgICAgICAudGhlbihyZXNwb25zZSA9PiByZXNwb25zZS50ZXh0KCkpDQogICAgICAgICAgICAudGhlbihob3N0bmFtZSA9PiB7DQogICAgICAgICAgICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdob3N0JykuaW5uZXJUZXh0ID0gIkhvc3RuYW1lOiAiICsgaG9zdG5hbWU7DQogICAgICAgICAgICB9KTsNCiAgICAgICAgPC9zY3JpcHQ+DQogICAgICA8L2JvZHk+DQogICAgICA8L2h0bWw+DQoNCnJ1bmNtZDoNCiAgIyBFbnN1cmUgZG9jdW1lbnQgcm9vdCBleGlzdHMNCiAgLSBta2RpciAtcCAvdmFyL3d3dy9odG1sDQoNCiAgIyBXcml0ZSBjdXJyZW50IGhvc3RuYW1lIGludG8gYSBzdGF0aWMgZmlsZQ0KICAtIGVjaG8gJChob3N0bmFtZSkgPiAvdmFyL3d3dy9odG1sL2hvc3RuYW1lLnR4dA0KDQogICMgUmVsb2FkIGFuZCByZXN0YXJ0IG5naW54IGNsZWFubHkNCiAgLSBzeXN0ZW1jdGwgZGFlbW9uLXJlbG9hZA0KICAtIHN5c3RlbWN0bCBlbmFibGUgbmdpbngNCiAgLSBzeXN0ZW1jdGwgcmVzdGFydCBuZ2lueA0K"
+        },
+        "securityType": {
+            "value": "TrustedLaunch"
+        },
+        "secureBoot": {
+            "value": true
+        },
+        "vTPM": {
+            "value": true
+        },
+        "vnetLocation": {
+            "value": "centralus"
+        },
+        "vnetExtendedLocation": {
+            "value": {}
+        },
+        "vnetVirtualNetworkName": {
+            "value": "vnet-centralus-1"
+        },
+        "vnetResourceGroupName": {
+            "value": "1-32df5306-playground-sandbox"
+        },
+        "vnetDeploymentName": {
+            "value": "network-interface-associated-virtual-network-20250928092955"
+        },
+        "vnetNatGatewaysWithNewPublicIpAddress": {
+            "value": []
+        },
+        "vnetNatGatewaysWithoutNewPublicIpAddress": {
+            "value": []
+        },
+        "vnetNatGatewayPublicIpAddressesNewNames": {
+            "value": []
+        },
+        "vnetNetworkSecurityGroupsNew": {
+            "value": []
+        },
+        "vnetProperties": {
+            "value": {
+                "subnets": [
+                    {
+                        "name": "snet-centralus-1",
+                        "properties": {
+                            "addressPrefixes": [
+                                "172.16.0.0/24"
+                            ]
+                        }
+                    }
+                ],
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "172.16.0.0/16"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,1 @@
+az deployment group create --resource-group 1-32df5306-playground-sandbox --template-file .\template\template.json --parameters .\template\parameters.json
