@@ -1,0 +1,60 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_client_name": {
+            "value": null
+        },
+        "virtualMachines_database_name": {
+            "value": null
+        },
+        "virtualNetworks_hub_vnet_name": {
+            "value": null
+        },
+        "routeTables_client_routes_name": {
+            "value": null
+        },
+        "virtualMachines_web_server_name": {
+            "value": null
+        },
+        "routeTables_backend_routes_name": {
+            "value": null
+        },
+        "networkInterfaces_client564_name": {
+            "value": null
+        },
+        "virtualNetworks_client_vnet_name": {
+            "value": null
+        },
+        "networkInterfaces_database11_name": {
+            "value": null
+        },
+        "publicIPAddresses_bastion_ip_name": {
+            "value": null
+        },
+        "publicIPAddresses_gateway_ip_name": {
+            "value": null
+        },
+        "virtualNetworks_backend_vnet_name": {
+            "value": null
+        },
+        "bastionHosts_hub_vnet_bastion_name": {
+            "value": null
+        },
+        "networkInterfaces_web_server385_name": {
+            "value": null
+        },
+        "publicIPAddresses_hub_vnet_IPv4_name": {
+            "value": null
+        },
+        "networkSecurityGroups_client_nsg_name": {
+            "value": null
+        },
+        "networkSecurityGroups_backend_nsg_name": {
+            "value": null
+        },
+        "virtualNetworkGateways_vpn_gateway_name": {
+            "value": null
+        }
+    }
+}
